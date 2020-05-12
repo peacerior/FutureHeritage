@@ -1,8 +1,152 @@
-<html>
-  <body>
-    <h1>future</h1>
-    <p>
-    <a href = "http://futureheritage.imaginary.tools">fh</a>
-    </p>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title></title>
+        <link
+            rel="manifest"
+            href="https://future-heritage.surge.sh/site.webmanifest"
+        />
+
+        <meta name="FutureHeritage" content="Fountain" />
+        <meta
+            name="viewport"
+            content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+        />
+        <style>
+            body {
+                font-family: sans-serif;
+                font-size: 13px;
+                background-color: #000;
+                margin: 0px;
+                overflow: hidden;
+            }
+
+            .slidecontainer {
+                position: fixed;
+                display: block;
+                transform: rotate(90deg);
+                z-index: 100;
+                top: 50vh;
+                right: 0px;
+
+                width: 60px;
+            }
+
+            .slider {
+                -webkit-appearance: none;
+                width: 40vh;
+                height: 1px;
+                border-radius: 5px;
+                background: #686767;
+                outline: none;
+                margin-top: 35px;
+                /* opacity: 0.7; */
+                -webkit-transition: 0.2s;
+                transition: opacity 0.2s;
+                /* transform: rotate(-90deg); */
+            }
+
+            .slider:hover {
+                opacity: 1;
+            }
+
+            .slider::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                appearance: none;
+                width: 30px;
+                height: 30px;
+                border: 0;
+                background: url("./css/scissors.svg");
+                background-position: right bottom;
+                background-repeat: no-repeat;
+
+                cursor: pointer;
+            }
+
+            .slider::-moz-range-thumb {
+                width: 30px;
+                height: 30px;
+                border: 0;
+                background: url("./css/scissors.svg");
+                background-position: right bottom;
+                background-repeat: no-repeat;
+
+                cursor: pointer;
+            }
+
+            .explodeGeometry::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                appearance: none;
+                width: 30px;
+                height: 30px;
+                border: 0;
+                background: url("./css/explode.svg");
+                background-position: right bottom;
+                background-repeat: no-repeat;
+
+                cursor: pointer;
+            }
+
+            .explodeGeometry::-moz-range-thumb {
+                width: 30px;
+                height: 30px;
+                border: 0;
+                background: url("./css/explode.svg");
+                background-position: right bottom;
+                background-repeat: no-repeat;
+
+                cursor: pointer;
+            }
+        </style>
+    </head>
+
+    <body ontouchstart="" data-gr-c-s-loaded="true">
+        <div
+            id="console"
+            style="
+                z-index: 200;
+                position: fixed;
+                top: 0px;
+                left: 0px;
+                color: aliceblue;
+            "
+        ></div>
+        <script src="./js/three.js"></script>
+        <!-- <script src="./js/MathUtils.js"></script> -->
+        <script src="./js/OrbitControls.js"></script>
+        <script src="./js/DeviceOrientationControls.js"></script>
+        <script src="./js/GLTFLoader.js"></script>
+        <script src="./js/app.js"></script>
+        <div class="slidecontainer">
+            <input
+                id="clipSlider"
+                type="range"
+                min="0"
+                max="1"
+                step="0.01"
+                class="slider undefined"
+            /><input
+                id="explodeSlider"
+                type="range"
+                min="0"
+                max="1"
+                step="0.01"
+                class="slider explodeGeometry"
+            />
+        </div>
+
+        <script>
+            init();
+            animate();
+        </script>
+        <div>
+            <canvas
+                width="3840"
+                height="1778"
+                style="width: 1920px; height: 889px;"
+            ></canvas>
+        </div>
+        <div></div>
+    </body>
 </html>
